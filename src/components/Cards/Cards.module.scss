@@ -1,0 +1,19 @@
+.card {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+}
+.status {
+    gap: 7px;
+}
+.status__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #9e9e9e;
+    align-self: center;
+  }
+
+.character__info {
+    background-color: #9E9E9E;
+}
