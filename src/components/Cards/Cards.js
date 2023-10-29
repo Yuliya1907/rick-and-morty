@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cards.module.scss'
+import styles from './Cards.module.scss'
 
 const Cards = ({ results }) => {
     let display;
@@ -9,21 +9,38 @@ const Cards = ({ results }) => {
             let {id, name, image, status, species, location} = x;
             return (
                 
-                <div key={id} className='row'>
-                    
-                        <img src={image} alt='' className='img-fluid col-5'/>
+                <div key={id} className={`${styles.card} col-6 col-sm-6 card mb-4`}>
+                    <div className='row'>
+                    <img src={image} alt='' className={`${styles.image} img-fluid col-5 px-0`}/>
                         <div className='character__info col-7'>
-                            <h4>{name}</h4>
-                            <div className='status'>
-                              <div className='status__dot'></div>
+                            <div className={`${styles.name} fs-4 fw-bold mt-3`}>{name}</div>
+                            <div className={`${styles.status} status mb-3 ms-3 fw-bold position-relative`}>
+                              {(() => {
+                                if(status === 'Dead') {
+                                  return (
+                                  <span class={`${styles.badge} badge position-absolute end-100 p-2 bg-danger rounded-circle`}>  </span>
+                                  );
+                                } else if(status === 'Alive') {
+                                  return (
+                                  <span class={`${styles.badge} badge position-absolute end-100 p-2 bg-success rounded-circle`}>  </span>
+                                  );
+                                } else {
+                                  return (
+                                  <span class={`${styles.badge} badge position-absolute end-100 p-2 bg-secondary rounded-circle`}>  </span>
+                                  );
+                                }
+                              })()}
+                          
                               <span>{status}</span>
                               <span> - </span>
                               <span>{species}</span>
                             </div>
-                            <p className='captions'>Last known location:</p>
-                            <p className='location'>{location.name}</p>
-                            <p className='captions'>First seen in:</p>
-                            <p className='location'>Close Rick-counters of the Rick Kind</p>
+                            <div className={`${styles.captions}`}>Last known location:</div>
+                            <div className={`${styles.name} location fs-5 mb-3`}>{location.name}</div>
+                            <div className={`${styles.captions}`}>First seen in:</div>
+                            <div className={`${styles.name} location fs-5`}>Close Rick-counters</div>
+                    </div>
+                        
                         </div>
         
                 </div>
@@ -33,7 +50,7 @@ const Cards = ({ results }) => {
         display = "No characters found :/"
     }
   return (
-    <div className="col-6 card">{display}</div>   
+    <>{display}</>   
   )
 }
 
