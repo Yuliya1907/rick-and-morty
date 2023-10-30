@@ -18,15 +18,15 @@ const Cards = ({ results }) => {
                               {(() => {
                                 if(status === 'Dead') {
                                   return (
-                                  <span class={`${styles.badge} badge position-absolute end-100 p-2 bg-danger rounded-circle`}>  </span>
+                                  <span className={`${styles.badge} badge position-absolute end-100 p-2 bg-danger rounded-circle`}>  </span>
                                   );
                                 } else if(status === 'Alive') {
                                   return (
-                                  <span class={`${styles.badge} badge position-absolute end-100 p-2 bg-success rounded-circle`}>  </span>
+                                  <span className={`${styles.badge} badge position-absolute end-100 p-2 bg-success rounded-circle`}>  </span>
                                   );
                                 } else {
                                   return (
-                                  <span class={`${styles.badge} badge position-absolute end-100 p-2 bg-secondary rounded-circle`}>  </span>
+                                  <span className={`${styles.badge} badge position-absolute end-100 p-2 bg-secondary rounded-circle`}>  </span>
                                   );
                                 }
                               })()}
