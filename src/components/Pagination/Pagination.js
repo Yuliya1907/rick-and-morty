@@ -8,14 +8,14 @@ const Pagination = ({ info, setPageNumber, pageNumber }) => {
    <ReactPaginate 
     pageCount={info?.pages} 
     className='pagination justify-content-center gap-4 my-4'
-    forcePage={pageNumber===1 ? 0 : pageNumber}
-    nextLabel=">"
+    forcePage={pageNumber===1 ? 0 : pageNumber - 1}
+    nextLabel="&gt;"
     previousLabel="<"
-    nextclassName='btn btn-light'
-    previousclassName='btn btn-light'
-    pageclassName={`page-item ${styles.page}`}
-    pageLinkclassName={`${styles.link}`}
-    activeclassName='btn-light'
+    nextClassName={`${styles.next} btn btn-light next`}
+    previousClassName='btn btn-light prev'
+    pageClassName='page-item'
+    pageLinkClassName={`${styles.link} page-link`}
+    activeClassName='btn-secondary'
     onPageChange={(data) => {
       setPageNumber(data.selected + 1);
     }}

@@ -6,14 +6,14 @@ const Species = ({ setSpecies, setPageNumber }) => {
         "Human",
         "Alien",
         "Humanoid",
-        "Poopybutthole",
+        "Planet",
         "Mythological",
         "Unknown",
         "Animal",
         "Disease",
-        "Robot",
         "Cronenberg",
-        "Planet",
+        "Robot",
+        "Poopybutthole",
       ];
   return (
     <div className="accordion-item">

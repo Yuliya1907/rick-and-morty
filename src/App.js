@@ -6,8 +6,23 @@ import './App.css';
 import Pagination from './components/Pagination/Pagination.js';
 import Footer from './components/Footer/Footer.js';
 import Filters from './components/FIlters/Filters.js';
+import CardDetails from "./components/CardDetails/CardDetails";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  return (
+    <Router>
+      <div className="App">
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<CardDetails />} />
+      </Routes>
+    </Router>
+  );
+}
+
+const Home = () => {
   let [pageNumber, setPageNumber] = useState(2);
   let [fetchedData, updateFetchedDta] = useState([]);
   let [search, setSearch] = useState('');
@@ -39,7 +54,7 @@ function App() {
           setSpecies={setSpecies}
         />
         <div className="row">
-         <Cards results={results} />
+         <Cards page="/" results={results} />
         </div>
       </div>
       <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber} />
